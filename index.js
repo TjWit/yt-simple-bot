@@ -21,10 +21,10 @@ client.on('ready', () => {
 
         if (!message.member.hasPermission('ADMINISTRATOR')) {
             let falsekickEmbed = new Discord.MessageEmbed()
-                .setTitle('Kick Member')
-                .setDescription('Sorry, you do not have the permission to run this command')
-                .setTimestamp()
-                .setColor("#7a1111");
+            .setTitle('Kick Member')
+            .setDescription('Sorry, you do not have the permission to use this command')
+            .setTimestamp()
+            .setColor("#7a1111")
             return message.channel.send(falsekickEmbed)
         }
 
@@ -32,18 +32,17 @@ client.on('ready', () => {
             var member = message.guild.member(kickUser);
 
             if (member) {
-                member.kick('You have not listined to the mods and/or the rules.').then(() => {
-                    let kickEmbed = new Discord.MessageEmbed()
-                        .setTitle('Kick Member')
-                        .setDescription(`You have successfully kicked ${kickUser} ✔`)
-                        .addFields(
-                            { name: '**Moderator**', value: `${message.author}` }
-                        )
-                        .setTimestamp()
-                        .setFooter('bot test server')
-                        .setColor('#55eb34')
-                    message.channel.send(kickEmbed)
-                })
+                member.kick('You have not listned tot he mods and/or the rules.')
+                let kickEmbed = new Discord.MessageEmbed()
+                .setTitle('Kick Member')
+                .setDescription(`You have sucessfully kick ${kickUser} ✔`)
+                .addFields(
+                    { name: '**Moderator**', value: `${message.author}`}
+                )
+                .setTimestamp()
+                .setFooter('bot test server')
+                .setColor('#55eb34')
+                message.channel.send(kickEmbed)
             }
         }
     })
@@ -81,6 +80,7 @@ client.on('ready', () => {
             }
         }
     })
+
 
     command(client, 'embed', (message) => {
         const Embed = new Discord.MessageEmbed()
